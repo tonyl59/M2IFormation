@@ -1,0 +1,2 @@
+#Exo1
+CREATE DATABASE Exo
