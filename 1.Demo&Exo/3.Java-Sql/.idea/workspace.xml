@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="994d4404-645a-42e2-b57a-da1010377a0c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../2.POO/1.demo_exo_basePoo" beforeDir="false" afterPath="$PROJECT_DIR$/../2.POO/1.demo_exo_basePoo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2.POO/2.ExoPoo_TodoApp" beforeDir="false" afterPath="$PROJECT_DIR$/../2.POO/2.ExoPoo_TodoApp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2.POO/3.demo_exo_designPattern" beforeDir="false" afterPath="$PROJECT_DIR$/../2.POO/3.demo_exo_designPattern" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1.JDBC_JPA" beforeDir="false" afterPath="$PROJECT_DIR$/1.JDBC_JPA" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/1.JDBC_JPA/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/1.JDBC_JPA/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/1.JDBC_JPA/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/1.JDBC_JPA/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/1.JDBC_JPA/src/main/java/org/example/Exercices/exo2/dao/CustomerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/1.JDBC_JPA/src/main/java/org/example/Exercices/exo2/dao/CustomerDao.java" afterDir="false" />
@@ -16,11 +20,6 @@
       <change beforePath="$PROJECT_DIR$/1.JDBC_JPA/src/main/java/org/example/demos/demo2/service/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/1.JDBC_JPA/src/main/java/org/example/demos/JDBC/demo2/service/PersonService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/1.JDBC_JPA/src/main/java/org/example/demos/demo2/util/ConsoleIhm.java" beforeDir="false" afterPath="$PROJECT_DIR$/1.JDBC_JPA/src/main/java/org/example/demos/JDBC/demo2/util/ConsoleIhm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/1.JDBC_JPA/src/main/java/org/example/demos/demo2/util/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/1.JDBC_JPA/src/main/java/org/example/demos/JDBC/demo2/util/DatabaseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/org/example/Exercises/exo1/dao/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/org/example/Exercises/exo1/dao/ProductDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/org/example/Exercises/exo1/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/org/example/Exercises/exo1/entity/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/java/org/example/Exercises/exo1/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/java/org/example/Exercises/exo1/test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hibernate/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hibernate/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JDBC" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +27,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/1.JDBC_JPA" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -66,6 +65,7 @@
       <updated>1748945595144</updated>
       <workItem from="1748945596263" duration="57000" />
       <workItem from="1749110661945" duration="35000" />
+      <workItem from="1749125613648" duration="50000" />
     </task>
     <servers />
   </component>
