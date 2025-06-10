@@ -1,4 +1,4 @@
-package org.example.exo1;
+package org.example.exo1.controller;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -14,11 +14,6 @@ public class RoughServlet extends HttpServlet {
 
     private String text;
 
-    @Override
-    public void init() throws ServletException {
-        System.out.println("test servlet html");
-        text = "ROUGHezaoiheaiheza";
-    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

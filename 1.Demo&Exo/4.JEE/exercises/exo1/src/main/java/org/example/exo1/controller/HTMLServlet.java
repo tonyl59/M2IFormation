@@ -1,4 +1,4 @@
-package org.example.exo1;
+package org.example.exo1.controller;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -14,11 +14,6 @@ public class HTMLServlet extends HttpServlet {
 
     private String text;
 
-    @Override
-    public void init() throws ServletException {
-        System.out.println("test servlet html");
-        text = "htmlezaoiheaiheza";
-    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
@@ -26,7 +21,7 @@ public class HTMLServlet extends HttpServlet {
 
         PrintWriter writer = resp.getWriter();
         writer.println("<html><body>");
-        writer.println("<h1>" + text + "</h1>");
+        writer.println("<h1>" + "htmlezaoiheaiheza" + "</h1>");
         writer.println("<h2> bbbbb</h2>");
         writer.println("</body></html>"); // mais pas tres pratique  ecrire en writer. blabla
 
