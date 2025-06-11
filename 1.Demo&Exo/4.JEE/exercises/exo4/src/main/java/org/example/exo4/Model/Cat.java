@@ -1,12 +1,14 @@
 package org.example.exo4.Model;
 
+import java.time.LocalDate;
+
 public class Cat {
     private String name;
     private String breed;
     private String favmeal;
-    private String bdate;
+    private LocalDate bdate;
 
-    public Cat(String name, String breed, String favmeal, String bdate) {
+    public Cat(String name, String breed, String favmeal, LocalDate bdate) {
         this.name = name;
         this.breed = breed;
         this.favmeal = favmeal;
@@ -29,11 +31,11 @@ public class Cat {
         this.breed = breed;
     }
 
-    public String getBdate() {
+    public LocalDate getBdate() {
         return bdate;
     }
 
-    public void setBdate(String bdate) {
+    public void setBdate(LocalDate bdate) {
         this.bdate = bdate;
     }
 

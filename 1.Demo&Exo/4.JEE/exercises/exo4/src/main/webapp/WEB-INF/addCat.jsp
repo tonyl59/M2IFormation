@@ -27,7 +27,7 @@
 
     <div>
         <label for="bdate">Birthdate :     </label>
-        <input type="text" name="bdate" id="bdate">
+        <input type="date" name="bdate" id="bdate">
     </div>
     <button>Add</button>
 </form>

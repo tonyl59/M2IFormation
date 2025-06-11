@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.example.exo4.Model.Cat;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class CatServlet extends HttpServlet {
         String name = req.getParameter("name");
         String breed = req.getParameter("breed");
         String fav_meal = req.getParameter("fav_meal");
-        String bdate = req.getParameter("bdate");
+        LocalDate bdate = LocalDate.parse(req.getParameter("bdate"));
 
         Cat cat = new Cat(name,breed, fav_meal, bdate);
         cats.add(cat);
