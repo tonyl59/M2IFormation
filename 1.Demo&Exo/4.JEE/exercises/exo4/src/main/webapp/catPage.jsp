@@ -14,8 +14,10 @@
 </head>
 <body>
 <%@include file="WEB-INF/addCat.jsp"%>
+
 <% if (cats.isEmpty()){%>
 <h2 class ="emptymessage"> No cats in list, please submit one to display table </h2>
+<img class="cryingcat" src="sadcat.webp" alt="cat sadge" width="300", height="300">
  <% }else{%>
 <h1 class="table"> Cat table </h1>
 <table>
@@ -33,7 +35,10 @@
     <td><%= c.getBdate()%></td>
   </tr>
   <% } %>
-</table> <%}%>
+</table>
+
+<img src="cat-space.gif" alt="cat lol">
+<%}%>
 
 
 </body>

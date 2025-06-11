@@ -32,4 +32,17 @@ h2.emptymessage{
     color: red;
 }
 
+img{
+    position: relative;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+@keyframes spinimage{
+    from{transform:rotate(0turn);}
+    to{transform: rotate(1turn)}
+    }
+.cryingcat{
+    animation: spinimage 10s linear infinite;
+
+}
 
