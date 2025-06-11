@@ -24,5 +24,12 @@ tr>td:last-of-type{
     background-color:yellow;
 }
 
+h1.table{
+    color: hotpink;
+}
+
+h2.emptymessage{
+    color: red;
+}
 
 

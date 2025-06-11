@@ -19,21 +19,17 @@ public class CatServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         cats = new ArrayList<>();
-        Cat cat1 = new Cat("Pepito", "race1", "mice","17/03/2020");
+        /*Cat cat1 = new Cat("Pepito", "race1", "mice","17/03/2020");
         Cat cat2 = new Cat("Wiskas", "race2", "rat","20/07/2018");
         Cat cat3 = new Cat("Meowth", "race1", "catpaste085","25/10/2022");
         cats.add(cat1);
         cats.add(cat2);
-        cats.add(cat3);
+        cats.add(cat3); */
 
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (cats.isEmpty()){
-            cats = new ArrayList<>();
-        }
-
         String name = req.getParameter("name");
         String breed = req.getParameter("breed");
         String fav_meal = req.getParameter("fav_meal");

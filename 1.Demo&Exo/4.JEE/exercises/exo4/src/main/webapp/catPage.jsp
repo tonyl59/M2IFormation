@@ -14,7 +14,10 @@
 </head>
 <body>
 <%@include file="WEB-INF/addCat.jsp"%>
-<h1> Cat table </h1>
+<% if (cats.isEmpty()){%>
+<h2 class ="emptymessage"> No cats in list, please submit one to display table </h2>
+ <% }else{%>
+<h1 class="table"> Cat table </h1>
 <table>
   <tr>
     <th>Name</th>
@@ -22,8 +25,6 @@
     <th>Favorite meal </th>
     <th>Birthdate</th>
   </tr>
-
-
   <% for (Cat c: cats){%>
   <tr>
     <td><%= c.getName()%> </td>
@@ -32,7 +33,7 @@
     <td><%= c.getBdate()%></td>
   </tr>
   <% } %>
-</table>
+</table> <%}%>
 
 
 </body>
