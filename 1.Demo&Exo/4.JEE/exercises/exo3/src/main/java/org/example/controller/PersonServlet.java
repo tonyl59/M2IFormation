@@ -16,7 +16,7 @@ public class PersonServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
 
-        List<Person> persons = new ArrayList<>();
+        persons = new ArrayList<>();
         Person person1 = new Person("LUONG","Tony",29);
         Person person2 = new Person("LUANG","Toto",20);
         Person person3 = new Person("LUING","Tata",23);

@@ -1,0 +1,26 @@
+table,th,td{
+    border: 1px solid;
+    border-collapse: collapse;
+    text-align: center;
+
+}
+
+th{
+    font-weight: bold;
+    background-color: cadetblue;
+
+}
+
+td{
+    background-color: cornflowerblue;
+}
+
+tr>th:last-of-type{
+    color: brown;
+    background-color : darkgreen;
+}
+tr>td:last-of-type{
+    background-color:yellow;
+}
+
+

@@ -9,14 +9,26 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <%@include file="style/style.jsp"%>
     <title>Person table</title>
 </head>
 <body>
 <h1> affichage table de personnes</h1>
-<!-- TODO créer une table ici-->
-<% for (Person p: persons){%>
-  <p><%= p.getLastname() %> <%= p.getFirstname() %> <%= p.getLastname() %></p>
-<% } %>
+<table>
+    <tr>
+        <th>Last name</th>
+        <th>First name</th>
+        <th> Age </th>
+    </tr>
+
+    <% for (Person p: persons){%>
+    <tr>
+        <td><%= p.getLastname() %> </td>
+        <td><%= p.getFirstname() %> </td>
+        <td><%= p.getAge() %> </td>
+    </tr>
+    <% } %>
+</table>
 
 </body>
 </html>
