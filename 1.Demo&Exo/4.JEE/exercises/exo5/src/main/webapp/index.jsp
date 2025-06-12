@@ -9,6 +9,8 @@
 </h1>
 <br/>
 <a href="hello-servlet">Hello Servlet</a>
-<a href="dog-servlet">Dog Table</a>
+<a href="dog/add">Add dog</a>
+<a href="dog/display-all">Display all dogs</a>
+<a href="dog/display-one">Display one dog</a>
 </body>
 </html>

@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <h1>Please submit your dog information :</h1>
-<form action="dog-servlet" method="post">
+<form action="add" method="post">
 
     <div>
         <label for="name">Name :          </label>
