@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1> detail of all todos </h1>
+
+<h2 th:each="t :${todos}"><span th:text="${t}"></span></h2>
+<!-- <h3 th:text="${todos}"></h3> -->
+</body>
+</html>
