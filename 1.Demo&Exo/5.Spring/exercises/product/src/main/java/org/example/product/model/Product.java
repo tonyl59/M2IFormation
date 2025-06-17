@@ -13,7 +13,6 @@ public class Product {
     private String name;
     private String category;
     private double price;
-    private int count = 0;
 
     @Override
     public String toString() {
@@ -22,7 +21,6 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", category='" + category + '\'' +
                 ", price=" + price +
-                ", count=" + count +
                 '}';
     }
 }

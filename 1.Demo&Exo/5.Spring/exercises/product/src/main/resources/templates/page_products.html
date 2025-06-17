@@ -9,7 +9,7 @@
 
 <p th:if="${products != null}">
 <p th:each="p : ${products}">
-    <a th:href="@{/detail/{id}(id=${p.getId()})}"> <span th:text="${p.getName()}"></span></a>
+    <a th:href="@{products/detail/{id}(id=${p.getId()})}"> <span th:text="${p.getId()}"></span></a>  <span th:text="${p.getName()}"></span>
 </p>
 
 
