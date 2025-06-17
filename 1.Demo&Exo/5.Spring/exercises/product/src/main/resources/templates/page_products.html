@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+</head>
+<body>
+<h1> Product list</h1>
+
+<p th:if="${products != null}">
+<p th:each="p : ${products}">
+    <a th:href="@{/detail/{id}(id=${p.getId()})}"> <span th:text="${p.getName()}"></span></a>
+</p>
+
+
+
+
+<a th:href="@{/}">Go back to Home Page</a>
+
+</body>
+</html>
