@@ -10,12 +10,7 @@ public class ProductService {
 
     private final Map<Integer, Product> products;
 
-/*
-    private String name;
-    private String category;
-    private double price;
 
- */
     public ProductService(){
         products = new HashMap<>();
 
@@ -42,6 +37,14 @@ public class ProductService {
 
     public List<Product> getProducts(){return this.products.values().stream().toList();}
 
+    public Set<String> getCategories(){
+        Set<String> categories = new HashSet<>();
+        for (Product p : products.values()){
+            categories.add(p.getCategory());
+        }
+        return categories;
+
+    }
     public Product getByID(int id){return this.products.get(id);}
 
     public List<Product> getByName(String name) {

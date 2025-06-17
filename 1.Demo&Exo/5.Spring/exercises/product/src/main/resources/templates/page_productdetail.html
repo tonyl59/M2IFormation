@@ -10,8 +10,11 @@
 
 <p>Product name :  <span th:text="${product.getName()}"></span></p>
 <p>Category : <span th:text="${product.getCategory()}"></span></p>
-<p>Price : <span th:text="${product.getPrice()}"></span></p>
+<p>Price : <span th:text="${product.getPrice()}">€</span></p>
+<br>
 
+<a th:href="@{/products}">Go back to product list</a>
+<br>
 <a th:href="@{/}">Go back to Home Page</a>
 
 </body>

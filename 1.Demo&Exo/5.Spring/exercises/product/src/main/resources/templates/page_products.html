@@ -7,13 +7,23 @@
 <body>
 <h1> Product list</h1>
 
-<p th:if="${products != null}">
+<p th:if="${products != null}"> </p>
+
 <p th:each="p : ${products}">
     <a th:href="@{products/detail/{id}(id=${p.getId()})}"> <span th:text="${p.getId()}"></span></a>  <span th:text="${p.getName()}"></span>
 </p>
 
+<br>
+<br>
+<br>
 
+<p> You can also click below to get all products by category </p>
+<p th:each="category : ${categories}">
+    <a th:href="@{products/category/{category}(category=${category})}"> <span th:text="${category}"> </span> </a>
+</p>
 
+<br>
+<br>
 
 <a th:href="@{/}">Go back to Home Page</a>
 
