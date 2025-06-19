@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<th:block th:fragment="navbar">
+    <a th:href="@{/}">Home</a>
+    <a th:href="@{/createrecipe/}"> new_recipe</a>
+    <a th:href="@{/recipes/}"> recipe_list </a>
+    <a th:href="@{/createcategory/}"> new_category</a>
+    <a th:href="@{/categories/}"> category_list </a>
+</th:block>
+
+<h1> Welcome to the M2I kitchen test app </h1>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipes list</title>
+</head>
+<body>
+<span th:replace="~{homepage :: navbar}"></span>
+<h1> Recipe table list : </h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Ingredients</th>
+        <th>Instructions</th>
+        <th>Category</th>
+        <th>Action</th>
+    </tr>
+
+    <tr th:each="r :${recipes}">
+        <td th:text="${r.getId()}"></td>
+        <td th:text="${r.getName()}"></td>
+        <td th:text="${r.getIngredients()}"></td>
+        <td th:text="${r.getInstructions()}"></td>
+        <td th:text="${r.getCategory().getName()}"></td>
+        <td> <a th:href="@{recipes/detail/{id}(id=${r.getId()})}"> Detail </a> </td>
+
+    </tr>
+
+
+</table>
+
+</body>
+</html>
+

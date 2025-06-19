@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span th:replace="~{homepage :: navbar}"></span>
+<form method="post" th:action="@{/addcategory}" th:object="${category}">
+    <div>
+        <label for="name">Name  :</label>
+        <input type="text" th:field="*{name}" id="name"/>
+    </div>
+    <div>
+        <label for="description">  :</label>
+        <input type="text" th:field="*{description}" id="description"/>
+    </div>
+
+    <button type="submit">Add</button>
+    <button type="reset">Reset</button>
+</form>
+
+</body>
+</html>

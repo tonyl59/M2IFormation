@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span th:replace="~{homepage :: navbar}"></span>
+
+<h1>Recipe creation form</h1>
+<form method="post" th:action="@{/addrecipe}" th:object="${recipe}">
+    <div>
+        <label for="name">Name  :</label>
+        <input type="text" th:field="*{name}" id="name"/>
+    </div>
+    <div>
+        <label for="ingredients">  :</label>
+        <input type="text" th:field="*{ingredients}" id="ingredients"/>
+    </div>
+    <div>
+        <label for="instructions">Age  :</label>
+        <input type="text" th:field="*{instructions}" id="instructions"/>
+    </div>
+    <div>
+        <label for="email">Email  :</label>
+        <input type="text" th:field="*{category.getName()}" id="email"/>
+    </div>
+
+    <button type="submit">Add</button>
+    <button type="reset">Reset</button>
+</form>
+</body>
+</html>
