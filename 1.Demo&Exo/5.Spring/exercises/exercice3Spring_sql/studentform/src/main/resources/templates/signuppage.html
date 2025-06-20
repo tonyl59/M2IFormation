@@ -9,7 +9,7 @@
 <h1> Please submit student informations </h1>
 <a th:href="@{/}"> Home </a>
 
-<form method="post" th:action="@{/add}" th:object="${student}">
+<form method="post" th:action="@{/signup}" th:object="${student}">
     <input th:field="*{id}" type="hidden" />
     <div>
         <label for="lastname">Last name :</label>
