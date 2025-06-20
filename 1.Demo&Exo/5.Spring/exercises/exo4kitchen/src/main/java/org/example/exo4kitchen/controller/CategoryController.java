@@ -1,9 +1,11 @@
 package org.example.exo4kitchen.controller;
 
+import jakarta.validation.Valid;
 import org.example.exo4kitchen.model.Category;
 import org.example.exo4kitchen.service.CategoryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,9 +27,12 @@ public class CategoryController {
     }
 
     @PostMapping("/addcategory")
-    public String submitCategory(@ModelAttribute("category") Category category){
+    public String submitCategory(@Valid @ModelAttribute("category") Category category, BindingResult bindingResult){ // Binding result & Valid allow to get message when null or not corresponding condition
+        if(bindingResult.hasErrors()){
+            return "categoryT/createpage"; // if i use redirect:/createcategory, it wont display the "error message null"
+        }
         categoryService.create(category);
-        return "redirect:/categoryT/createpage";
+        return "redirect:/createcategory";
     }
 
     //Get

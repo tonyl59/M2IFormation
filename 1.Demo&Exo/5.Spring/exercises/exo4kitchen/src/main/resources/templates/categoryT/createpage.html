@@ -2,18 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create Category</title>
 </head>
 <body>
 <span th:replace="~{homepage :: navbar}"></span>
+
+<h1>Recipe Category creation form</h1>
 <form method="post" th:action="@{/addcategory}" th:object="${category}">
     <div>
-        <label for="name">Name  :</label>
-        <input type="text" th:field="*{name}" id="name"/>
+        <label for="name">Name :</label>
+        <input type="text" th:field="*{name}" id="name" placeholder="Salad"/>
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
     </div>
     <div>
-        <label for="description">  :</label>
-        <input type="text" th:field="*{description}" id="description"/>
+        <label for="description">Description :</label>
+        <input type="text" th:field="*{description}" id="description" placeholder="a cold dish of various mixtures of raw or cooked vegetables"/>
+        <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
     </div>
 
     <button type="submit">Add</button>

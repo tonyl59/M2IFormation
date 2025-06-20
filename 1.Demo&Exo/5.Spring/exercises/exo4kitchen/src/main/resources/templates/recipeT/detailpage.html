@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Recipe detail</title>
 </head>
 <body>
 <span th:replace="~{homepage :: navbar}"></span>
@@ -14,7 +14,7 @@
 <div th:object="${recipe}">
     <p>Name : <a th:text="*{name}"></a></p>
     <p>Ingredients : <a th:text="*{ingredients}"></a></p>
-    <p>Age : <a th:text="*{instructions}"></a></p>
+    <p>Instructions : <a th:text="*{instructions}"></a></p>
     <p>Category : <a th:text="*{category.getName()}"></a></p>
 </div>
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create recipe</title>
 </head>
 <body>
 <span th:replace="~{homepage :: navbar}"></span>
@@ -12,19 +12,29 @@
     <div>
         <label for="name">Name  :</label>
         <input type="text" th:field="*{name}" id="name"/>
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
     </div>
     <div>
-        <label for="ingredients">  :</label>
+        <label for="ingredients">Ingredients :</label>
         <input type="text" th:field="*{ingredients}" id="ingredients"/>
+        <span th:if="${#fields.hasErrors('ingredients')}" th:errors="*{ingredients}"></span>
     </div>
     <div>
-        <label for="instructions">Age  :</label>
+        <label for="instructions">Instructions  :</label>
         <input type="text" th:field="*{instructions}" id="instructions"/>
+        <span th:if="${#fields.hasErrors('instructions')}" th:errors="*{instructions}"></span>
     </div>
-    <div>
-        <label for="email">Email  :</label>
-        <input type="text" th:field="*{category.getName()}" id="email"/>
-    </div>
+
+<div>
+    <select class="form-select" th:field="*{category_id}">
+        <option value="">-- Choose category --</option>
+        <option th:each="categori : ${categories}"
+                th:value="${categori.id}"
+                th:text="${categori.name}">
+        </option>
+    </select>
+</div>
+
 
     <button type="submit">Add</button>
     <button type="reset">Reset</button>

@@ -16,17 +16,17 @@ public class RecipeService {
         List<String> ingredients1 = new ArrayList<>();
         Collections.addAll(ingredients1, "tomato sauce", "flour");
         List<String> ingredients2 = new ArrayList<>();
-        Collections.addAll(ingredients1, "tomato sauce", "flour","basil","mozzarella");
+        Collections.addAll(ingredients2, "tomato sauce", "flour","basil","mozzarella");
         List<String> ingredients3 = new ArrayList<>();
-        Collections.addAll(ingredients1, "pasta", "carbonara sauce");
+        Collections.addAll(ingredients3, "pasta", "carbonara sauce");
 
-        Category category1 = categoryService.getCategories().get(1); // Pizza
-        Category category2 = categoryService.getCategories().get(2);
+        Category category1 = categoryService.get_by_id(1); // Pizza
+        Category category2 = categoryService.get_by_id(2);
 
 
-        Recipe recipe1 = Recipe.builder().id(1).name("Plain").category(category1).ingredients(ingredients1).instructions("prepare flour, put tomate sauce and cook then cook on oven").build();
-        Recipe recipe2 = Recipe.builder().id(2).name("Margherita").category(category1).ingredients(ingredients2).instructions("prepare flour, put tomate sauce, mozzarella & basil then cook on oven").build();
-        Recipe recipe3 = Recipe.builder().id(3).name("Carbonara").category(category2).ingredients(ingredients3).instructions("Cook pasta and put carbonara sauce in it").build();
+        Recipe recipe1 = Recipe.builder().id(1).category_id(1).name("Plain").category(category1).ingredients(ingredients1).instructions("prepare flour, put tomate sauce and cook then cook on oven").build();
+        Recipe recipe2 = Recipe.builder().id(2).category_id(1).name("Margherita").category(category1).ingredients(ingredients2).instructions("prepare flour, put tomate sauce, mozzarella & basil then cook on oven").build();
+        Recipe recipe3 = Recipe.builder().id(3).category_id(2).name("Carbonara").category(category2).ingredients(ingredients3).instructions("Cook pasta and put carbonara sauce in it").build();
         recipes.put(recipe1.getId(), recipe1);
         recipes.put(recipe2.getId(), recipe2);
         recipes.put(recipe3.getId(), recipe3);
