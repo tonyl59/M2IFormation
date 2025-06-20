@@ -27,7 +27,7 @@
 
 <div>
     <select class="form-select" th:field="*{category_id}">
-        <option value="">-- Choose category --</option>
+        <option value="-1">-- Choose category --</option>
         <option th:each="categori : ${categories}"
                 th:value="${categori.id}"
                 th:text="${categori.name}">
