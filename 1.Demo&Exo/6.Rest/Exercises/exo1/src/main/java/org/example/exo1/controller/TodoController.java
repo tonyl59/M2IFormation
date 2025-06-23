@@ -29,7 +29,7 @@ public class TodoController {
         return service.get(id);
     }
 
-    @PostMapping("/{id}")
+    @PostMapping
     public Todo create (@RequestBody TodoReceiveDto todoReceiveDto){
         return service.create(todoReceiveDto);
     }
@@ -46,12 +46,12 @@ public class TodoController {
 
     }
 
-    @GetMapping
+    @GetMapping("/dones")
     public List<Todo> getDones(){
         return service.get_done();
     }
 
-    @GetMapping
+    @GetMapping("/notdones")
     public List<Todo> getNotDones (){
         return service.get_notdone();
     }

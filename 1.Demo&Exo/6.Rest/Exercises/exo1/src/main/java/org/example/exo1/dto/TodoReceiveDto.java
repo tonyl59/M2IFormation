@@ -19,7 +19,7 @@ public class TodoReceiveDto {
 
     public Todo dtoToEntity() {
 
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         return Todo.builder()
                 .title(getTitle())
