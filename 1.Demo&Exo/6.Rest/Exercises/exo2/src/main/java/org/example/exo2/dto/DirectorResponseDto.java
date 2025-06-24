@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @Data
 @Builder
 public class DirectorResponseDto {
-    private Long id;
+    private Long directorId;
     private String lastname;
     private String firstname;
     private LocalDate birthday;

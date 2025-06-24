@@ -21,6 +21,7 @@ public class DirectorReceiveDto {
 
     @Pattern(regexp = "[0-9]{4}[-|\\/]{1}[0-9]{2}[-|\\/]{1}[0-9]{2}" , message = "Date should be as yyyy-MM-dd format!")
     private String birthdayStr;
+
     private String nationality;
 
 

@@ -18,7 +18,7 @@ public class Movie {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private Long movieId;
     private String name;
     private LocalDate releasedate;
     private String description;
@@ -26,18 +26,19 @@ public class Movie {
     private String genre;
 
     @ManyToOne(cascade ={CascadeType.PERSIST,CascadeType.REFRESH})
-    @JoinColumn(name = "name")
+    @JoinColumn(name = "directorId")
     private Director director;
 
 
     public MovieResponseDto entityToDto(){
         return MovieResponseDto.builder()
-                .id(getId())
+                .id(getMovieId())
                 .name(getName())
                 .releasedate(getReleasedate())
                 .description(getDescription())
                 .duration(getDuration())
                 .genre(getGenre())
+                .directorId(getDirector().getDirectorId())
                 .build();
     }
 

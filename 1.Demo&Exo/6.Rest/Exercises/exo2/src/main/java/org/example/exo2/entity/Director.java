@@ -19,7 +19,7 @@ public class Director {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private Long directorId;
     private String lastname;
     private String firstname;
     private LocalDate birthday;
@@ -28,9 +28,10 @@ public class Director {
     @OneToMany(mappedBy = "director")
     private List<Movie> movies;
 
+
     public DirectorResponseDto entityToDto(){
         return DirectorResponseDto.builder()
-                .id(getId())
+                .directorId(getDirectorId())
                 .lastname(getLastname())
                 .firstname(getFirstname())
                 .birthday(getBirthday())

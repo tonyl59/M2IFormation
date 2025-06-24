@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.exo2.entity.Director;
 
 import java.time.LocalDate;
 
@@ -19,4 +20,5 @@ public class MovieResponseDto {
     private String description;
     private int duration; // Minute
     private String genre;
+    private long directorId;
 }

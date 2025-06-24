@@ -2,10 +2,12 @@ package org.example.exo2.dto;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.exo2.entity.Director;
 import org.example.exo2.entity.Movie;
 
 import java.time.LocalDate;
@@ -22,8 +24,12 @@ public class MovieReceiveDto {
     private String releasedateStr;
 
     private String description;
+
     private int duration; // Minute
     private String genre;
+
+    @NotEmpty(message = "Please input a valid director")
+    private Director director;
 
 
 
@@ -37,6 +43,7 @@ public class MovieReceiveDto {
                 .description(getDescription())
                 .duration(getDuration())
                 .genre(getGenre())
+                .director(getDirector())
                 .build();
     }
 }
