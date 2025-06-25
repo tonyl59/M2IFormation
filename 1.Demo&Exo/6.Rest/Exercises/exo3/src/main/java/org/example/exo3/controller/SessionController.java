@@ -28,17 +28,25 @@ public class SessionController {
         session = httpSession;
     }
 
-    @GetMapping("/product/{id}")
-    public ResponseEntity<String> addToCart (@PathVariable long id, int qty){
+    @GetMapping("/add/{id}&{qty}")
+    public ResponseEntity<String> addToCart (@PathVariable long id,  @PathVariable int qty){
         service.add_to_cart(id, qty);
         session.setAttribute("cart",service.getCart());
         return ResponseEntity.ok("Product added to cart");
     }
 
-    @GetMapping("/getproduct")
+    @GetMapping("/delete/{id}&{qty}")
+    public ResponseEntity<String> removeFromCart (@PathVariable long id,  @PathVariable int qty){
+        service.remove_from_cart(id, qty);
+        session.setAttribute("cart",service.getCart());
+        return ResponseEntity.ok("Product added to cart");
+    }
+
+
+    @GetMapping("/confirm")
     public ResponseEntity<List<ProductResponseDto>> getProducts (){
         List<ProductResponseDto> products = service.confirm_cart();
-
+        session.setAttribute("products", products);
         if(products.isEmpty()){
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(new ArrayList<>());
         }
