@@ -1,7 +1,9 @@
 package org.example.exo3.service;
 
+import jakarta.servlet.http.HttpSession;
 import lombok.Getter;
 import lombok.Setter;
+import org.example.exo3.dto.CartResponseDto;
 import org.example.exo3.dto.ProductReceiveDto;
 import org.example.exo3.dto.ProductResponseDto;
 import org.example.exo3.entity.Product;
@@ -19,37 +21,59 @@ import java.util.Map;
 @Setter
 public class CartService {
 
-    Map<Long, Integer> cart = new HashMap<>();
-    ProductRepository productRepository;
+    private HttpSession session;
+    private ProductService productService;
+    //private Map<Long, Integer> cart = (Map<Long,Integer>) session.getAttribute("cart");
 
-    public CartService(ProductRepository productRepository) {
-        this.productRepository = productRepository;
+    public CartService(ProductService productService, HttpSession session) {
+        this.productService = productService;
+        this.session = session;
     }
 
     public void add_to_cart (long productId, int qty){
-        productRepository.findById(productId).orElseThrow(NotFoundException::new);
-            this.cart.put(productId, this.cart.get(productId) + qty);
+        Map<Long,Integer> cart = (Map<Long,Integer>) session.getAttribute("cart");
+        if(cart == null){
+            cart = new HashMap<>();
         }
+        productService.get(productId);
+        if(cart.containsKey(productId)){
+            cart.put(productId, cart.get(productId) + qty);
+        }else{
+            cart.put(productId, qty);
+        }
+        session.setAttribute("cart",cart);
+    }
 
 
 
     public void remove_from_cart (long productId, int qty){
-        productRepository.findById(productId).orElseThrow(NotFoundException::new);
-        int product_qty = this.cart.get(productId);
+        Map<Long,Integer> cart = (Map<Long,Integer>) session.getAttribute("cart");
+        productService.get(productId);
+
+        int product_qty = cart.get(productId);
         int new_product_qty = product_qty - qty;
-        if (new_product_qty <0){
-            this.cart.remove(productId);
+        if (new_product_qty <1){
+            cart.remove(productId);
         }else{
-            this.cart.put(productId, new_product_qty);
+            if(cart.containsKey(productId)){
+                cart.put(productId, new_product_qty);
+            } // comment mettre un message que l'objet n'est pas dans le cart ?
         }
+        session.setAttribute("cart",cart);
     }
 
-    public List<ProductResponseDto>  confirm_cart(){
-        List<ProductResponseDto> products = new ArrayList<>();
-        for (long id : cart.values()){
-            ProductResponseDto product = productRepository.findById(id).orElseThrow().entityToDto();
-            products.add(product);
+    public CartResponseDto  confirm_cart(){
+        double totalPrice = 0;
+        Map<Long,Integer> cart = (Map<Long,Integer>) session.getAttribute("cart");
+        if(cart==null){
+            return null;
         }
-        return products;
+        Map<ProductResponseDto, Integer> products = new HashMap<>();
+        for (Map.Entry<Long,Integer> entry : cart.entrySet()){
+            ProductResponseDto product = productService.get(entry.getKey());
+            products.put(product,entry.getValue());
+            totalPrice += product.getPrice() * entry.getValue();
+        }
+        return CartResponseDto.builder().cart(products).totalPrice(totalPrice).build();
     }
 }
