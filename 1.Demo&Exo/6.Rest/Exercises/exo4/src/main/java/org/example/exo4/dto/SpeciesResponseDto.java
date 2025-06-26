@@ -15,6 +15,6 @@ public class SpeciesResponseDto {
     private long idSpecies;
     private String commonName;
     private String scientificName;
-    private Enum<Category> category;
+    private String category;
 
 }

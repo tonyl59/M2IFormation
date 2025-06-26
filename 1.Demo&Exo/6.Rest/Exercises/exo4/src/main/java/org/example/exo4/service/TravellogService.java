@@ -17,17 +17,16 @@ import java.util.List;
 public class TravellogService {
 
     private final TravellogRepository travellogRepository;
-    private final ObservationService observationService;
+    private final ObservationRepository observationRepository;
 
-    public TravellogService(TravellogRepository travellogRepository, ObservationService observationService){
+    public TravellogService(TravellogRepository travellogRepository,ObservationRepository observationRepository){
         this.travellogRepository = travellogRepository;
-        this.observationService = observationService;
+        this.observationRepository = observationRepository;
     }
 
     public TravellogResponseDto create(TravellogReceiveDto travellogReceiveDto){
-        return travellogRepository.save(travellogReceiveDto.dtoToEntity()).entityToDto();
+        return travellogRepository.save(travellogReceiveDto.dtoToEntity(observationRepository)).entityToDto();
     }
-
 
 
     public List<TravellogResponseDto> get(){
@@ -39,8 +38,8 @@ public class TravellogService {
         double totalEmissionsKg = 0;
         List <Enum<TravelMode>> byMode = new ArrayList<>();
         for (TravellogResponseDto t : this.get()){
-            if (t.getObservationId() == id){
-                byMode.add(t.getMode());
+            if (t.getIdObservation() == id){
+                byMode.add(TravelMode.valueOf(t.getMode())); // string mode value reconverted to Enum mode
                 totalDistanceKm += t.getDistanceKm();
                 totalEmissionsKg += t.getEstimatedCo2Kg();
             }

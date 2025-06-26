@@ -15,7 +15,7 @@ public class TravellogResponseDto {
     private long idTravellog;
     private double distanceKm;
     private double estimatedCo2Kg;
-    private Enum<TravelMode> mode;
-    private long observationId;
+    String mode;
+    private long idObservation;
 
 }

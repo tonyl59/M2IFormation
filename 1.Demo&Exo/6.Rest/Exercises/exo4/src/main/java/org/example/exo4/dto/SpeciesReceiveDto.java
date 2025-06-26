@@ -15,13 +15,13 @@ public class SpeciesReceiveDto {
 
     private String commonName;
     private String scientificName;
-    private Enum<Category> category;
+    private String category;
 
     public Species dtoToEntity(){
         return Species.builder()
                 .commonName(getCommonName())
                 .scientificName(getScientificName())
-                .category(getCategory())
+                .category(Category.valueOf(category))
                 .build();
     }
 }

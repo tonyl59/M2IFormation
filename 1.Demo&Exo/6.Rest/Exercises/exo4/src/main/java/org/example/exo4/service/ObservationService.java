@@ -3,8 +3,10 @@ package org.example.exo4.service;
 import org.example.exo4.dto.ObservationReceiveDto;
 import org.example.exo4.dto.ObservationResponseDto;
 import org.example.exo4.entity.Observation;
+import org.example.exo4.entity.Species;
 import org.example.exo4.exception.NotFoundException;
 import org.example.exo4.repository.ObservationRepository;
+import org.example.exo4.repository.SpeciesRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,13 +16,15 @@ import java.util.List;
 public class ObservationService {
 
     private final ObservationRepository observationRepository;
+    private final SpeciesRepository speciesRepository;
 
-    public ObservationService(ObservationRepository observationRepository){
+    public ObservationService(ObservationRepository observationRepository, SpeciesRepository speciesRepository){
         this.observationRepository = observationRepository;
+        this.speciesRepository = speciesRepository;
     }
 
     public ObservationResponseDto create (ObservationReceiveDto observationReceiveDto){
-        return observationRepository.save(observationReceiveDto.dtoToEntity()).entityToDto();
+        return observationRepository.save(observationReceiveDto.dtoToEntity(speciesRepository)).entityToDto();
     }
 
     public ObservationResponseDto get(long id){

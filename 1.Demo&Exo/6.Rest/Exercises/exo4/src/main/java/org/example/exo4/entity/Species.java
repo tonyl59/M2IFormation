@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.example.exo4.dto.SpeciesResponseDto;
 
+import java.util.List;
+
 @Entity
 @Table(name="species")
 @NoArgsConstructor
@@ -19,18 +21,17 @@ public class Species {
 
     private String commonName;
     private String scientificName;
-    private Enum<Category> category;
+    private Category category;
 
-    @OneToOne
-    @JoinColumn(name = "idObservation")
-    private Observation observation;
+    @OneToMany(mappedBy = "species")
+    private List<Observation> observations;
 
     public SpeciesResponseDto entityToDto(){
         return SpeciesResponseDto.builder()
-                .idSpecies(getIdSpecies())
-                .commonName(getCommonName())
-                .scientificName(getScientificName())
-                .category(getCategory())
+                .idSpecies(idSpecies)
+                .commonName(commonName)
+                .scientificName(scientificName)
+                .category(String.valueOf(category))
                 .build();
     }
 }

@@ -20,5 +20,6 @@ public class ObservationResponseDto {
     private double longitude;
     private LocalDate observationDate;
     private String comment;
+    private long idSpecies;
 
 }

@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.example.exo4.entity.TravelMode;
 import org.example.exo4.entity.Travellog;
+import org.example.exo4.exception.NotFoundException;
+import org.example.exo4.repository.ObservationRepository;
 
 import java.time.format.DateTimeFormatter;
 
@@ -15,16 +17,17 @@ import java.time.format.DateTimeFormatter;
 public class TravellogReceiveDto {
 
     double distanceKm;
-    Enum<TravelMode> mode;
+    String mode;
+    long idObservation;
 
-    public Travellog dtoToEntity(){
-        Travellog travellog =
-                Travellog.builder()
-                .distanceKm(getDistanceKm())
-                .mode(getMode())
+    public Travellog dtoToEntity(ObservationRepository observationRepository){
+        Travellog travellog = Travellog.builder()
+                .distanceKm(distanceKm)
+                .mode(TravelMode.valueOf(mode))
+                .observation(observationRepository.findById(idObservation).orElseThrow(NotFoundException::new))
                 .build();
         travellog.setEstimatedCo2Kg(travellog.get_co2kg());
         return travellog;
     }
-
+/*Category.valueOf(category)*/
 }
