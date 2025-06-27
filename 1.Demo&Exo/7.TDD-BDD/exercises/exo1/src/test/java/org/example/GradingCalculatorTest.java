@@ -7,11 +7,26 @@ public class GradingCalculatorTest {
     private GradingCalculator grading;
 
     @Test
-    public void whenScore95_presence90_then_note1(){
+    public void whenScore95_presence90_then_noteB(){
         grading = new GradingCalculator(95,90);
         char result = grading.getGrade();
         Assert.assertEquals('A',result);
     }
+
+    @Test
+    public void whenScore85_presence90_then_noteB(){
+        grading = new GradingCalculator(85,90);
+        char result = grading.getGrade();
+        Assert.assertEquals('B',result);
+    }
+
+    @Test
+    public void whenScore65_presence90_then_noteC(){
+        grading = new GradingCalculator(65,90);
+        char result = grading.getGrade();
+        Assert.assertEquals('C',result);
+    }
+
 
     /*    public char getGrade() {
         if (Score > 90 && AttendancePercentage > 70) return 'A';
