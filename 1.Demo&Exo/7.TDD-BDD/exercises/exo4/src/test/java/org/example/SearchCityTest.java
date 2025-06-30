@@ -31,7 +31,7 @@ public class SearchCityTest {
 
     @Test
     public void when_wordVa_findValenceVancouver(){
-        List<String> result = searchCity.search("vA"); // VA, Va, vA & va both work since we made research function case insensible (.lowercase when bool checking)
+        List<String> result = searchCity.search("vA"); // VA, Va, vA & va both work since we made research function case insensitive (.lowercase when bool checking)
         List<String> expected = Arrays.asList("Valence", "Vancouver");
         Assertions.assertEquals(expected, result);
     }

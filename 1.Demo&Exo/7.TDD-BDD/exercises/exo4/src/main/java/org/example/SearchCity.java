@@ -14,22 +14,23 @@ public class SearchCity {
     }
 
     public List<String> search(String word){
-        if (word.equals("*")){
-            return cities;
-        }else{
-            if (word.length() < 2){
-                throw new NotFoundException("Word length should at least 2 characters !");
-            } else{
-                List<String> citiesfound = new ArrayList<>();
-                for (String c : cities){
-                    if (c.toLowerCase().contains(word.toLowerCase())){
-                        citiesfound.add(c);
-                    }
-                }
-                return citiesfound;
+
+        if (word.length() < 2) {
+            if (word.equals("*")) {
+                return cities;
+            }
+            throw new NotFoundException("Word length should at least have 2 characters !");
+        }
+        List<String> citiesfound = new ArrayList<>();
+        for (String c : cities){
+            if (c.toLowerCase().contains(word.toLowerCase())){
+                citiesfound.add(c);
             }
         }
+        return citiesfound;
     }
-
-
 }
+
+
+
+
