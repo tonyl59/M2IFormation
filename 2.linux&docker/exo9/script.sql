@@ -1,0 +1,3 @@
+CREATE DATABASE exo9;
+
+USE exo9;

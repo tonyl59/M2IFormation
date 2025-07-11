@@ -1,0 +1,52 @@
+
+
+services:
+  # service BDD mysql
+  db:
+    image: mysql
+    restart: always
+    container_name: exo9_mysql
+    ports:
+      - "3310:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=example
+      - MYSQL_DATABASE=bdd9
+    volumes:
+      - db_volume:/var/lib/mysql
+      - ./script.sql:/docker-entrypoint-initdb.d/script.sql
+    networks:
+      - mysql-phpmyadmin
+
+  # service phpmyadmin
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    container_name: exo9_pma
+    environment:
+      - PMA_HOST=db
+    ports:
+      - "8150:80"
+    depends_on:
+      - db
+    networks:
+      - mysql-phpmyadmin
+
+  javapp:
+    build:
+      context: ./studentform
+    
+
+
+volumes:
+  db_volume:
+
+networks:
+  mysql-phpmyadmin:
+
+
+  # une machine à une appli
+  # une machine à un sql
+  # je dois avoir le nom de la machine et le port..
+
+
+  
