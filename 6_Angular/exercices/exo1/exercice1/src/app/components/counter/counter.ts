@@ -7,21 +7,21 @@ import { Component } from '@angular/core';
   styleUrl: './counter.css'
 })
 export class Counter {
-  count : number = 0
-  isPair: boolean = false
+  count : number = 0 // valeur initial
+  isPair: boolean = false // Va permettre, en conjonction avec increment/decrement, de faire un check pour changer la couleur du comptage dans le html
 
-  increment() : void{
+  increment() : void{ // pour incrementer le compteur
     this.count += 1
-    if (this.count%2 == 0){
+    if (this.count%2 == 0){ // si nombre compteur est pair...
       this.isPair = true
     }
-    else{
+    else{ // si nombre du compteur est impair...
       this.isPair = false
     }
   }
 
-  decrement() : void{
-    if (this.count !=0){
+  decrement() : void{ // pour décrementer le compteur
+    if (this.count !=0){ // Permet d'indirectement mettre la limite minimum du compteur à 0 pour éviter qu'il soit au négatif
       this.count -= 1
     }
     
