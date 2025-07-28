@@ -6,3 +6,13 @@
     - commence à 0
     - qui est rouge si impair et vert si le nombre est pair
     - Ajouter 2 boutons pour incrémenter et décrementer le compteur
+
+
+## Exercice 2 :
+- Créer composant "series"
+- Créer route du composant series + route composant counter
+- Creer barre de navigation
+- Dans series, creer une liste de series en dur
+- Afficher liste de series
+- Afficher message si liste vide
+- Ajouter bouton de suppression sur chaque element de la liste

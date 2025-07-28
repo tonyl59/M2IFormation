@@ -1,0 +1,11 @@
+    <h1>Exercice 2</h1>
+
+    @for (series of listTest; track series; let i = $index) {
+        <p>{{ i }} - {{ series }}</p> <button (click)="delete(i)"> Delete this series </button>
+
+    
+    }
+     @empty {
+        <p>La liste est vide !</p>
+    }
+

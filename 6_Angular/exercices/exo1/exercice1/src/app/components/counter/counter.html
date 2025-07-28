@@ -1,6 +1,7 @@
-<h1 class ="bg-gray-100 p-6 rounded mx-auto shadow-md max-w-xs">
+<h1> Exercice 1 </h1>
+<h2 class ="bg-gray-100 p-6 rounded mx-auto shadow-md max-w-xs">
     test tailwind
-</h1>
+</h2>
 <section>
             <p [class]="isPair ? 'green' : 'red' "> Count : {{ count }}</p>
 </section>
@@ -12,4 +13,6 @@
 
     <p> ce compteur ci-dessous est un test pas encore fini, ne fais pas attention</p>
     <label for="counter">Count :</label>
-    <input id = "counttext" value=0 name="ageanimal" type="number"  min="-200" max="200" onKeyDown="return false" />
+    <input  id = "counttext" value=0 name="ageanimal" type="number"  min="-200" max="200" onKeyDown="return false" />
+<!-- <input (change)="checkPair()" id = "counttext" value=0 name="ageanimal" type="number"  min="-200" max="200" onKeyDown="return false" />
+ -->

@@ -1,0 +1,29 @@
+<h1>les blocks</h1>
+
+<section>
+    <h2>les blocks conditionnels</h2>
+
+    @if (isLogged) {
+        <div>
+            <h3>Vous etes connecté !</h3>
+            <button (click)="toggleLogged()">Se deconnecter</button>
+        </div>
+    } @else {
+        <div>
+            <h3>Vous n'etes pas connecté</h3>
+            <button (click)="toggleLogged()">Se connecter</button>
+        </div>
+    }
+</section>
+
+<section>
+    <h2>les boucles</h2>
+
+    @for (user of users; track user; let i = $index) {
+        <p>{{ i }} - {{ user }}</p>
+        <p>est-il le premier ? {{ $first }} ou le dernier ? {{ $last }}</p>
+
+    } @empty {
+        <p>La liste est vide !</p>
+    }
+</section>

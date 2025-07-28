@@ -30,8 +30,10 @@ export class Counter {
     else{ // si nombre du compteur est impair...
       this.isPair = false
     }
+  
+  }
 
-
+  checkpair() : void{
     
   }
   
