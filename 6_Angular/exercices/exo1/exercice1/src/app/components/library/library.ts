@@ -48,15 +48,28 @@ export class Library {
 
     isSubmitted : boolean = false
 
-
-
-
     bookAdd : Book = {
     title: "",
     author: "",
     isRead: false
   }
 
+  submitBook(): void{
+   
+    this.isSubmitted = true
+    this.books.push(this.bookAdd)
+
+    this.bookAdd = {
+    title: "",
+    author: "",
+    isRead: false
+  }
+    
+  
+
+  }
+
+  /*
   submitBook(titleAdd : string, authorAdd : string) : void {
     const book = {
     title: titleAdd,
@@ -67,8 +80,8 @@ export class Library {
     this.isSubmitted = true
     this.books.push(book)
 
-
   }
+    */
 
   
 }
