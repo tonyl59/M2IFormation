@@ -47,3 +47,36 @@ npm start
 - Afficher liste de series
 - Afficher message si liste vide
 - Ajouter bouton de suppression sur chaque element de la liste
+
+## Exercice 3 :
+- Créer un pipe personnalisé, qui prend en paramètre une liste, et argument de type string 'order' ('asc' ou 'desc')
+- Utiliser ce pipe sur la liste de série pour la trier
+- Ajouter 2 boutons pour modifier l'ordre du tableau
+
+ -> Voir `utils/order` & modifs sur `series.ts` & `series.html`
+
+ ## Exercice 4 :
+
+- Créer un composant librairie, et sa route
+
+```bash
+ng g c components/library --skip-tests
+```
++ rajout de `{path: "library", component: Library}` dans app.routes.ts & rajout de la ligne suivante sur `navbar.html`
+```html
+<li>
+    <a routerLink="/library">Library</a>
+</li>
+``` 
+
+- Dans ce composant, afficher une liste de livre
+    - title
+    - author
+    - isRead
+- quand le livre est lu, on affiche 👍 ou 👎 (windows + . pour ajouter l'emoji)
+- Utiliser un pipe perso pour la gestion de l'emoji
+
+```bash
+ng g p  utils/emojiManager --skip-tests
+```
+- Ajouter un bouton pour marquer un livre lu / pas lu

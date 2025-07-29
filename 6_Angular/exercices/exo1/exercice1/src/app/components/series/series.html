@@ -1,11 +1,18 @@
     <h1>Exercice 2</h1>
 
-    @for (series of listTest; track series; let i = $index) {
+    <button (click)="setOrder('asc')"> Order ascend </button>
+    <button (click)="setOrder('desc')"> Order descend </button>
+    @for (series of listTest | order : order; track series; let i = $index) {
         <p>{{ i }} - {{ series }}</p> <button (click)="delete(i)"> Delete this series </button>
-
-    
     }
-     @empty {
+    @empty {
         <p>La liste est vide !</p>
     }
+
+
+
+
+
+    
+
 
