@@ -1,5 +1,19 @@
     <h1> Liste de Livres </h1>
     
     @for (book of books; track book; let i = $index) {
-        <p>{{ i }} - {{ book.author }} - {{ book.title }} - {{ book.isRead | emojiManager}} </p>     <button (click)="toggleRead(book)">Toggle </button>
+        <p>{{ i }} - {{ book.author }} - {{ book.title }} - {{ book.isRead | emojiManager}} </p>  <button (click)="toggleRead(book)"> {{book.isRead ? 'Mark as unread' : 'Mark as read'}} </button>
     }
+
+
+    <h3>Add Book</h3>
+    <form (ngSubmit)="submitBook(bookAdd.title, bookAdd.author)">
+        <div>
+            <label for="title">Book title</label>
+            <input type="text" name="title" [(ngModel)]="bookAdd.title">
+        </div>
+        <div>
+            <label for="author">Author </label>
+            <input type="text" name="author" [(ngModel)]="bookAdd.author">
+        </div>
+        <button>Add book</button>
+    </form>

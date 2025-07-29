@@ -1,0 +1,41 @@
+<h1>Les formulaires</h1>
+
+<section>
+    <h2>Template Driven Forms</h2>
+
+    <h3>Sans two way binding</h3>
+
+    <div>
+        <label for="msg">Message</label>
+        <input type="text" name="msg" [value]="message" (input)="updateMessage($event)">
+    </div>
+    <p>Message = {{ message }}</p>
+
+    <h3>Avec two way binding</h3>
+
+    <div>
+        <label for="msg2">Message</label>
+        <input type="text" name="msg2" [(ngModel)]="message2">
+    </div>
+    <p>Message = {{ message2 }}</p>
+
+    <h3>Formulaire</h3>
+    <form (ngSubmit)="submitUser()">
+        <div>
+            <label for="name">Nom</label>
+            <input type="text" name="name" [(ngModel)]="user.name">
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="text" name="email" [(ngModel)]="user.email">
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" name="password" [(ngModel)]="user.password">
+            @if (passwordHasError) {
+                <p>Mot de passe invalide</p>
+            }
+        </div>
+        <button>S'inscrire</button>
+    </form>
+</section>

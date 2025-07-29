@@ -5,12 +5,15 @@ import { Counter } from './components/counter/counter';
 import { Series } from './components/series/series';
 import { Pipes } from './components/pipes/pipes';
 import { Library } from './components/library/library';
+import { Formulaire } from './components/formulaire/formulaire';
 export const routes: Routes = [
     {path: "", component: Home},
     {path: "blocks", component: Blocks},
     {path: "pipes", component: Pipes},
+    {path: "form", component: Formulaire},
     {path: "counter", component: Counter},
     {path: "series", component: Series},
     {path: "library", component: Library}
+
 
 ];
