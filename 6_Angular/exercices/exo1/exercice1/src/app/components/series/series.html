@@ -1,16 +1,26 @@
-    <h1>Exercice 2</h1>
 
-    <button (click)="setOrder('asc')"> Order ascend </button>
-    <button (click)="setOrder('desc')"> Order descend </button>
+<div class="container mx-auto">
+
+        <h1 class="font-bold text-gray-800 mb-6 text-4xl">Exercice 2</h1>
+    
+    <div class="mb-6 space-x-4">
+        <button (click)="setOrder('asc')" class="bg-slate-800 hover:bg-slate-700 text-white py-2 px-2 rounded"> Order ascend </button>
+        <button (click)="setOrder('desc')" class="bg-slate-800 hover:bg-slate-700 text-white py-2 px-2 rounded"> Order descend </button>
+    </div>
+
+
+    <div class="space-y-4">
     @for (series of listTest | order : order; track series; let i = $index) {
-        <p>{{ i }} - {{ series }}</p> <button (click)="delete(i)"> Delete this series </button>
-    }
+         <li class="flex justify-between items-center p-4 bg-gray-300 rounded mb-3">
+            <p class="text-lg font-bold text-gray-700">{{ i }} - {{ series }}</p> <button (click)="delete(i)" class="bg-red-700 text-white rounded-lg p-3 hover:bg-red-600"> Delete this series </button>
+        </li>
+    }   
     @empty {
         <p>La liste est vide !</p>
     }
 
-
-
+</div>
+</div>
 
 
     

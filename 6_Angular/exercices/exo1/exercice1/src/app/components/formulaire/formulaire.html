@@ -7,7 +7,7 @@
 
     <div>
         <label for="msg">Message</label>
-        <input type="text" name="msg" [value]="message" (input)="updateMessage($event)">
+        <input type="text" name="msg" [value]="message" (input)="updateMessage($event)" class="border border-solid to-black">
     </div>
     <p>Message = {{ message }}</p>
 
@@ -15,7 +15,7 @@
 
     <div>
         <label for="msg2">Message</label>
-        <input type="text" name="msg2" [(ngModel)]="message2">
+        <input type="text" name="msg2" [(ngModel)]="message2" class="border border-solid to-black">
     </div>
     <p>Message = {{ message2 }}</p>
 
@@ -23,19 +23,66 @@
     <form (ngSubmit)="submitUser()">
         <div>
             <label for="name">Nom</label>
-            <input type="text" name="name" [(ngModel)]="user.name">
+            <input type="text" name="name" [(ngModel)]="user.name" class="border border-solid to-black">
         </div>
         <div>
             <label for="email">Email</label>
-            <input type="text" name="email" [(ngModel)]="user.email">
+            <input type="text" name="email" [(ngModel)]="user.email" class="border border-solid to-black">
         </div>
         <div>
             <label for="password">Password</label>
-            <input type="password" name="password" [(ngModel)]="user.password">
+            <input type="password" name="password" [(ngModel)]="user.password" class="border border-solid to-black">
             @if (passwordHasError) {
                 <p>Mot de passe invalide</p>
             }
         </div>
         <button>S'inscrire</button>
+    </form>
+</section>
+
+<section>
+    <h2>Reactive forms</h2>
+
+    <form (ngSubmit)="saveBook()">
+        <label for="book">Titre du livre</label>
+        <input type="text" name="book" [formControl]="book_control" class="border border-solid to-black">
+        @if (book_control.hasError("required") && book_control.touched) {
+            <p>Champs obligatoire</p>
+        } @else if (book_control.hasError("minlength")) {
+            <p>Titre trop court</p>
+        }
+        <button>Ajouter</button>
+    </form>
+
+    <h2>FormGroup</h2>
+
+    <form [formGroup]="formation_form" (ngSubmit)="saveFormation()">
+        <div>
+            <label for="title">Titre</label>
+            <input type="text" name="title" formControlName="title" class="border border-solid to-black">
+        </div>
+        <div>
+            <label for="duration">Durée</label>
+            <input type="number" name="duration" formControlName="duration" class="border border-solid to-black">
+        </div>
+        <fieldset formGroupName="trainer">
+            <div>
+                <label for="firstname">Prénom</label>
+                <input type="text" name="firstname" formControlName="firstname" class="border border-solid to-black">
+            </div>
+            <div>
+                <label for="lastname">Durée</label>
+                <input type="text" name="lastname" formControlName="lastname" class="border border-solid to-black">
+            </div>
+        </fieldset>
+        <fieldset formArrayName="modules">
+            <legend>Modules</legend>
+            @for (control of modules.controls; track control; let i = $index){
+                <label [for]="'module' + $index">Module {{$index + 1}}</label>
+                <input type="text" [name]="'module' + $index" [formControlName]="$index" class="border border-solid to-black">
+            }
+            <button (click)="addModule()">Ajouter un module</button>
+        </fieldset>
+        <button>Sauvegarder</button>
     </form>
 </section>

@@ -1,0 +1,84 @@
+<div class="container mx-auto p-6">  
+
+    <h1 class="font-bold text-gray-800 mb-6 text-3xl"> Pokemon List </h1>
+
+    <section class="grid grid-cols-1 gap-7">
+
+    <div class="container mx-auto p-6">
+    @for (pokemon of pokemons; track pokemon; let i = $index) {
+            <p class="text-blue-600">{{ i }} - {{ pokemon.nameP }} - {{ pokemon.descriptionP }} - {{ pokemon.types }} </p>
+            <br>
+            <div> <p class="text-red-900 font-bold">Attacks: </p>
+                @for (attack of pokemon.attacks; track attack; let j = $index){
+                    <p class="text-gray-600"> - {{attack.nameA}} | {{ attack.type}} | {{attack.damage}}</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{attack.descriptionA}}</p>
+                    
+                } 
+                <br>
+                <div class = "bg-gray-800 p-4"></div>
+            </div>
+            
+        }
+
+        </div>
+    </section>
+
+
+    <section>
+ 
+    <h2>Add Pokemon </h2>
+    <form [formGroup]="pokemon_form" (ngSubmit)="savePokemon()">
+        <div>
+            <label for="nameP">Name</label>
+            <input type="text" name="nameP" formControlName="nameP" class="border border-solid to-black">
+            @if (pokemon_form.hasError("required") && pokemon_form.touched) {
+                <p>Veuillez saisir le champs</p>
+            }
+        </div>
+
+        <div>
+            <label for="descriptionP">Description</label>
+            <input type="text" name="descriptionP" formControlName="descriptionP" class="border border-solid to-black">
+        </div>
+
+        <div>
+            <label for="type">Types</label>
+            <select name="type" multiple formControlName="types">
+                @for (type of types; track type; let i = $index){
+                    <option [value]="type">{{type}}</option>
+                }
+            </select>
+        </div>
+
+        <fieldset formArrayName="attacks">
+            <legend>Attacks</legend>
+
+            @for (control of attacks.controls; track control; let i = $index){
+                <fieldset [formGroupName="i"]>
+                    <legend> Attack n°{{i}}</legend>
+                    <div>
+                        <label [for]="'namee' + i">Attack Name</label>
+                        <input type="text" [name]="'namee' + i" formControlName="nameA" class="border border-solid to-black">
+                    </div>
+                    
+                    <div>
+                        <label [for]="'descriptionn' + i ">Attack Description</label>
+                        <input type="text" [name]="'descriptionn'+ i" formControlName="descriptionA" class="border border-solid to-black">
+                    </div>
+
+                    <div>
+                        <label [for]="'damage' + i ">Attack Damage</label>
+                        <input type="number" [name]="'damage' + i" formControlName="damage" class="border border-solid to-black">
+                    </div>
+                    <div>
+                        <label [for]="'type'+ i">Attack Type</label>
+                        <input type="text" [name]="'type' + i" formControlName="type" class="border border-solid to-black">
+                    </div>
+                    </fieldset>
+                }
+            
+                <button (click)="addAttack()">Add Attack</button>   
+        </fieldset> 
+        <button>Save</button>
+    </form>
+</section>

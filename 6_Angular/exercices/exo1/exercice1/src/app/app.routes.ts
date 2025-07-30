@@ -6,6 +6,7 @@ import { Series } from './components/series/series';
 import { Pipes } from './components/pipes/pipes';
 import { Library } from './components/library/library';
 import { Formulaire } from './components/formulaire/formulaire';
+import { Pokemon } from './components/pokemon/pokemon';
 export const routes: Routes = [
     {path: "", component: Home},
     {path: "blocks", component: Blocks},
@@ -13,7 +14,8 @@ export const routes: Routes = [
     {path: "form", component: Formulaire},
     {path: "counter", component: Counter},
     {path: "series", component: Series},
-    {path: "library", component: Library}
+    {path: "library", component: Library},
+    {path: "pokemon", component: Pokemon}
 
 
 ];

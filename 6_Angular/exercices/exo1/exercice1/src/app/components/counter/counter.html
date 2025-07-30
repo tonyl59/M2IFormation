@@ -1,14 +1,13 @@
 <h1> Exercice 1 </h1>
-<h2 class ="bg-gray-100 p-6 rounded mx-auto shadow-md max-w-xs">
-    test tailwind
-</h2>
+
+
 <section>
             <p [class]="isPair ? 'green' : 'red' "> Count : {{ count }}</p>
 </section>
 
-<section>
-    <button (click)="decrement()"> Decrement </button>
-    <button (click)="increment()"> Increment </button>
+<section  class="btn-container flex justify-center space-x-4">
+    <button (click)="decrement()"  class="bg-red-500 px-4 py-2 text-white rounded hover:bg-red-700"> Decrement </button>
+    <button (click)="increment()" class="bg-green-500 px-4 py-2 text-white rounded hover:bg-green-700"> Increment </button>
 </section>
 
     <p> ce compteur ci-dessous est un test pas encore fini, ne fais pas attention</p>

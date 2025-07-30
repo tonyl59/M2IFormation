@@ -65,7 +65,18 @@ export class Library {
     isRead: false
   }
     
-  
+  /*
+  // Methode prof
+    submitBook(): void {
+    const book : Book = {
+      ...this.bookAdd
+    }
+
+    this.books.push(book)
+    this.bookAdd.title = ""
+    this.bookAdd.author = ""
+  }
+  */
 
   }
 
