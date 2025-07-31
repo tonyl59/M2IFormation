@@ -1,79 +1,78 @@
 <div class="container mx-auto p-6">  
-
     <h1 class="font-bold text-gray-800 mb-6 text-3xl"> Pokemon List </h1>
-
+    <p class="text-red-500">{{receiveData}}</p> 
+    
     <section class="grid grid-cols-1 gap-7">
-
-    <div class="container mx-auto p-6">
-    @for (pokemon of pokemons; track pokemon; let i = $index) {
-    <app-pokemon-card [message]="parentMessage" [pokemon]="pokemon" (dataEmitted)="handleData($event)" />
-    <br>
-    <div class = "bg-gray-800 p-4"></div>
-
-        }
-
-        </div>
-    </section>
-       <p>{{receiveData}}</p> 
-
-    <section>
- 
-    <h2>Add Pokemon </h2>
-    <form [formGroup]="pokemon_form" (ngSubmit)="savePokemon()">
-        <div>
-            <label for="nameP">Name</label>
-            <input type="text" name="nameP" formControlName="nameP" class="border border-solid to-black">
-            @if (pokemon_form.hasError("required") && pokemon_form.touched) {
-                <p>Veuillez saisir le champs</p>
+        
+        <div class="container mx-auto p-6">
+            @for (pokemon of pokemons; track pokemon; let i = $index) {
+                <app-pokemon-card [message]="parentMessage" [pokemon]="pokemon" (dataEmitted)="handleData($event)" />
+                <br>
+                <div class = "bg-gray-800 p-4"></div>
             }
         </div>
-
-        <div>
-            <label for="descriptionP">Description</label>
-            <input type="text" name="descriptionP" formControlName="descriptionP" class="border border-solid to-black">
-        </div>
-
-        <div>
-            <label for="type">Types</label>
-            <select name="type" multiple formControlName="types">
-                @for (type of types; track type; let i = $index){
-                    <option [value]="type">{{type}}</option>
+    </section>
+    
+    <section>
+        <h2>Add Pokemon </h2>
+        <form [formGroup]="pokemon_form" (ngSubmit)="savePokemon()">
+            <div>
+                <label for="nameP">Name</label>
+                <input type="text" name="nameP" formControlName="nameP" class="border border-solid to-black">
+                @if (pokemon_form.hasError("required") && pokemon_form.touched) {
+                    <p>Please insert in the fields</p>
                 }
-            </select>
-        </div>
-
-        <fieldset formArrayName="attacks">
-            <legend>Attacks</legend>
-
-            @for (control of attacks.controls; track control; let i = $index){
-                <fieldset [formGroupName]="i">
-                    <legend> Attack n°{{i+1}}</legend>
-                    <div>
-                        <label [for]="'name' + i+1">Attack Name</label>
-                        <input type="text" [name]="'name' + i+1" formControlName="nameA" class="border border-solid to-black">
-                    </div>
-                    
-                    <div>
-                        <label [for]="'description' + i+1 ">Attack Description</label>
-                        <input type="text" [name]="'description'+ i+1" formControlName="descriptionA" class="border border-solid to-black">
-                    </div>
-
-                    <div>
-                        <label [for]="'damage' + i ">Attack Damage</label>
-                        <input type="number" [name]="'damage' + i+1" formControlName="damage" class="border border-solid to-black">
-                    </div>
-                    <div>
-                        <label [for]="'type'+ i">Attack Type</label>
-                        <input type="text" [name]="'type' + i+1" formControlName="type" class="border border-solid to-black">
-                    </div>
+            </div>
+            
+            <div>
+                <label for="descriptionP">Description</label>
+                <input type="text" name="descriptionP" formControlName="descriptionP" class="border border-solid to-black">
+            </div>
+            
+            <div>
+                <label for="type">Types</label>
+                <select name="type" multiple formControlName="types">
+                    @for (type of types; track type; let i = $index){
+                        <option [value]="type">{{type}}</option>
+                    }
+                </select>
+            </div>
+            
+            
+            <fieldset formArrayName="attacks">
+                <legend>Attacks</legend>
+                @for (control of attacks.controls; track control; let i = $index){
+                    <fieldset [formGroupName]="i">
+                        <legend> Attack n°{{i+1}}</legend>
+                        <div>
+                            <label [for]="'name' + i+1">Attack Name</label>
+                            <input type="text" [name]="'name' + i+1" formControlName="nameA" class="border border-solid to-black">
+                        </div>
+                        
+                        
+                        <div>
+                            <label [for]="'description' + i+1 ">Attack Description</label>
+                            <input type="text" [name]="'description'+ i+1" formControlName="descriptionA" class="border border-solid to-black">
+                        </div>
+                        
+                        
+                        <div>
+                            <label [for]="'damage' + i ">Attack Damage</label>
+                            <input type="number" [name]="'damage' + i+1" formControlName="damage" class="border border-solid to-black">
+                        </div>
+                        
+                        <div>
+                            <label [for]="'type'+ i">Attack Type</label>
+                            <input type="text" [name]="'type' + i+1" formControlName="type" class="border border-solid to-black">
+                        </div>
                     </fieldset>
                 }
-                 <button type="button" (click)="addAttack()">Add Attack</button>   
-                 <p> @if (attacks.length >3){
-                 Max attack limit (4), you cannot add more ! }
-                 </p>
-        </fieldset> 
-        <br>
-        <button type="submit">Save</button>
-    </form>
+                <button type="button" (click)="addAttack()">Add Attack</button>   
+                <p> @if (attacks.length >3){
+                    Max attack limit (4), you cannot add more ! }
+                </p>
+            </fieldset> 
+            <br>
+            <button type="submit">Save</button>
+        </form>
 </section>

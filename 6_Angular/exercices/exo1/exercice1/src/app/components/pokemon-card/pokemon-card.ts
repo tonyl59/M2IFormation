@@ -27,9 +27,6 @@ export class PokemonCard {
 
   @Output() dataEmitted = new EventEmitter<string>()  
 
-  sendData(id : number) {
-    this.dataEmitted.emit("Hi from Pokemon Card !")
-  }
 
   sendDelete(id : number){
     this.dataEmitted.emit("Deleted pokemon id n°"+id)
