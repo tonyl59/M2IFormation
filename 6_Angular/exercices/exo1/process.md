@@ -73,10 +73,65 @@ ng g c components/library --skip-tests
     - title
     - author
     - isRead
-- quand le livre est lu, on affiche 👍 ou 👎 (windows + . pour ajouter l'emoji)
-- Utiliser un pipe perso pour la gestion de l'emoji
 
+- quand le livre est lu, on affiche 👍 ou 👎 (windows + . pour ajouter l'emoji)
+ -> voir `library.html`
+- Utiliser un pipe perso pour la gestion de l'emoji
 ```bash
 ng g p  utils/emojiManager --skip-tests
 ```
+ -> voir `emoji-manager-pipe.ts`
+
 - Ajouter un bouton pour marquer un livre lu / pas lu
+ -> voir `library.html`
+
+
+ ## Exercice 5 :
+
+- Dans le composant librairie, Créer un formulaire pour ajouter un livre
+- par défaut la valeur de isRead sera false
+- Ajouter le nouveau livre à la liste books
+
+## Exercice 6 :
+
+- Créer un nouveau composant et sa route
+
+```bash
+ng g c components/pokemon --skip-tests
+npm start
+```
+```ts (app.routes.ts)
+{path: "pokemon", component: Pokemon}
+```
+
+```html (navbar.html)
+    <li>
+        <a routerLink="/pokemon" class="text-gray-300 font-bold hover:text-white">Pokemon</a>
+    </li>
+
+```
+- Dans le composant, créer un formulaire réactif pour créer un pokemon
+    - Nom
+    - Description
+    - Liste de types
+    - liste d'attaques
+        - nom
+        - description
+        - dégats
+        - type
+
+
+## Exercice 7 :
+- Reprendre pokemon
+
+- Créer un composant pokemon-card, ce composant prendra un pokemon via les props et affichera une carte pokemon
+```bash
+ng g c components/pokemon-card --skip-tests
+```
+
+
+
+- Afficher ensuite avec une boucle les pokemons de la liste
+- Créer un bouton dans pokemon-card permettant de supprimer un pokemon
+    - Le bouton doit envoyer un evenement au parent
+    - Le parent doit récupérer cet evenement pour supprimer le pokemon de la liste (vous pouvez ajouter un id au type pokemon pour le retrouver facilement)

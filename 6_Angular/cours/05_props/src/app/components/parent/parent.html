@@ -1,0 +1,9 @@
+
+<!-- <app-enfant [message]="parentMessage" [user]="user1" />
+<app-enfant [message]="parentMessage" [user]="user2" />
+<app-enfant [message]="parentMessage" [user]="user3" /> -->
+
+@for (user of listUser; track user; let i = $index){
+    <app-enfant [message]="parentMessage" [user]="user" (dataEmitted)="handleData($event)" />
+    <p>{{receiveData}}</p>
+}

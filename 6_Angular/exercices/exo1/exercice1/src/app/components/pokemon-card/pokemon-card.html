@@ -1,0 +1,14 @@
+
+
+<div>
+    <h3>Pokemon :</h3>
+    <p class="text-blue-600">{{ pokemon.id }} - {{ pokemon.nameP }} - {{ pokemon.descriptionP }} - {{ pokemon.types }} </p>
+    <br>
+            <div> <p class="text-red-900 font-bold">Attacks: </p>
+                @for (attack of pokemon.attacks; track attack; let j = $index){
+                    <p class="text-gray-600"> - {{attack.nameA}} | {{ attack.type}} | {{attack.damage}}</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{attack.descriptionA}}</p>     
+                } 
+                <button (click)="sendDelete(pokemon.id)" class="bg-red-700 text-white rounded-lg p-3 hover:bg-red-600"> Delete Pokemon </button>
+            </div>
+        </div>
