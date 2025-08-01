@@ -1,25 +1,16 @@
-<p>post-list works!</p>
 
-        <h2>Search Pokemon</h2>
-        <form [formGroup]="search_form" (ngSubmit)="searchPokemon()">
-            <label for="searchId">Search by id</label>
-            <input type="number" name="searchId" formControlName="searchId" class="border border-solid to-black">
-            <button type="submit">Search</button>   
-        </form>
-        <br>
-        <img src={{search_result.sprites.front_default}}>
-        <p> <a class="font-bold">Name</a> : {{search_result.forms[0].name}} </p> 
-        <p> <a class="font-bold">Weight</a> : {{search_result.weight}} </p>
-        <p> <a class="font-bold">Height</a> : {{search_result.height}}  </p>
-        <br>
+<h2>Search Pokemon</h2>
 
-        <div>
-        
-        <a class="font-bold text-gray-900">Moves</a> :  
-        <p>       
-            @for (move of search_result.moves; track move; let i = $index){
-            {{move.move.name}} |
-            }
-        </p>
-        </div>
+ 
+    <input type="number" name="searchId" [formControl]="searchId" class="border border-solid to-black" placeholder="1">
+    <button (click)="searchPokemon()" class="px-4 py-2 bg-gray-600 text-white font-semibold rounded-md hover:bg-gray-700 transition">Search</button>
+    <p> {{message}}</p>   
+
+<br>
+<app-post-list-pkmn-card [cId]="currentId" />
+
+<section  class="btn-container flex justify-center space-x-4">
+    <button (click)="previousPokemon()"  class="bg-red-500 px-4 py-2 text-white rounded hover:bg-red-700"> Previous </button>
+    <button (click)="nextPokemon()" class="bg-green-500 px-4 py-2 text-white rounded hover:bg-green-700"> Next </button>
+</section>
     

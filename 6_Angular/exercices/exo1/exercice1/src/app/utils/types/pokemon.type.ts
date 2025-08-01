@@ -1,9 +1,9 @@
 export type Pokemon = {
   pkmnId : number,  
   name : string,
-  weight : number,
   height : number,
-  types : string[],
+  weight : number,
   image : string,
-  attacks : string[]
+  types : any[],
+  moves : any[]
 }

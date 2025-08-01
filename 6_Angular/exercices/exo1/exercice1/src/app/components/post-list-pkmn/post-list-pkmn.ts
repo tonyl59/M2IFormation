@@ -1,62 +1,48 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Pokapi } from '../../utils/services/pokapi';
-import { Pokemon } from '../../utils/types/pokemon.type';
-import { error } from 'node:console';
-import { FormsModule, FormGroup, FormControl, FormArray, Validators, ReactiveFormsModule} from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormsModule,  FormControl, ReactiveFormsModule} from '@angular/forms';
+;
+import { PostListPkmnCard } from '../post-list-pkmn-card/post-list-pkmn-card';
 
 @Component({
   selector: 'app-post-list-pkmn',
-  imports: [FormsModule,ReactiveFormsModule],
+  standalone: true,
+  imports: [FormsModule,ReactiveFormsModule, PostListPkmnCard],
   templateUrl: './post-list-pkmn.html',
   styleUrl: './post-list-pkmn.css'
 })
-export class PostListPkmn implements OnInit, OnDestroy{
-  apidata : any = ''
-  constructor(private pokapiService : Pokapi){}
-  
-  ngOnInit(): void {
-    this.pokapiService.getPosts().subscribe({
-      next: data => {
-        //console.log(data);
-        this.apidata = data;
-        console.log(typeof(this.apidata))
-        console.log(this.apidata.results)
-      },
-      error: err => console.error(err)
-    })
-  }
-  
 
+export class PostListPkmn{
 
-  // à la destruction du composant
-  ngOnDestroy(): void {
-    console.log("On destroy");
-  }
+  searchId: FormControl = new FormControl(0)
+  currentId : number = 1
+  message : string = ''
 
+// Pokemon search
+  //Search
 
-  search_form : FormGroup = new FormGroup({
-    searchId : new FormControl(0)}
-  )
-  search_result : any = 'Please search a pokemon'
   searchPokemon(): void {
-    const url : string = this.apidata.results[this.search_form.value.searchId-1].url
-    this.pokapiService.addUrl(url).subscribe({
-      next: data => {
-        this.search_result = data
-        console.log(this.search_result)},
-        error: err => console.error(err)
-      }
-    )
-    //this.search_result = this.apidata.results[this.search_form.value.searchId-1]
-    
+    const id : number = this.searchId.value
+    if (id < 1){
+      this.message = "There is no pokemon with a number of 0 or below ! "
+    }else if (id>1024){
+      this.message = "There is no pokemon with a number of 1025 beyond !" 
+    }else {
+      this.currentId = id
+      //console.log(this.currentId)
+    }
   }
+
+  previousPokemon(): void{
+    this.currentId --
+  }
+
+  nextPokemon(): void{
+    this.currentId ++
+  }
+
+
+
 }
-
-
-  
-  
-
-
  
 
 

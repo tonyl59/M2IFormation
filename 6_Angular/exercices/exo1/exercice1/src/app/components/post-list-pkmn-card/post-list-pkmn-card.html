@@ -1,0 +1,23 @@
+        <img src={{p.image}}>
+        
+        <p> <a class="font-bold">Pokedex Number</a> : #{{p.pkmnId}} </p> 
+        <p> <a class="font-bold">Name</a> : {{p.name}} </p> 
+        <p> <a class="font-bold">Height</a> : {{p.weight}} </p>
+        <p> <a class="font-bold">Weight</a> : {{p.height}}  </p>
+        <p> 
+            <a class="font-bold">Type1: </a> {{p.types[0]}}  
+          
+        </p>
+        
+        <br>
+
+        <div>
+  
+        <a class="font-bold text-gray-900">Moves</a> :  
+        <p>       
+            @for (move of p.moves; track move; let i = $index){
+            {{move.move.name}} |
+            }
+        </p>
+        </div>
+

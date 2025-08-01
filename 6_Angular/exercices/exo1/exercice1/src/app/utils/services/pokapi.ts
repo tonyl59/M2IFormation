@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Pokemon } from '../types/pokemon.type';
 
 @Injectable({
@@ -11,16 +11,24 @@ export class Pokapi {
   private baseUrl = "https://pokeapi.co/api/v2/pokemon"
 
   constructor(private http: HttpClient){}
-
+/*
   getPosts(): Observable<Pokemon[]>{
-    return this.http.get<Pokemon[]>(this.baseUrl+"?limit=150")
+    return this.http.get<Pokemon[]>(this.baseUrl)
   }
-
+*/
 
   addUrl(newUrl : string) : Observable<Pokemon>{
-    console.log(newUrl)
-    return this.http.get<Pokemon>(newUrl)
+    //console.log(newUrl)
+    return this.http.get<any>(newUrl).pipe(
+      map((data) =>({
+        pkmnId: data.id,
+        name: data.forms[0].name,
+        height: data.height,
+        weight: data.weight,
+        image: data.sprites.front_default,
+        types: [data.types[0].type.name],
+        moves: data.moves
+      }))
+    );
   }
-
-  
 }
