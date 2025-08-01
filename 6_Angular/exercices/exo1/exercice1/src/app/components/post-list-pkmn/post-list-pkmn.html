@@ -1,16 +1,18 @@
-
+<div>
 <h2>Search Pokemon</h2>
 
  
-    <input type="number" name="searchId" [formControl]="searchId" class="border border-solid to-black" placeholder="1">
+    <input type="number" name="searchId" [formControl]="searchId" class="border border-solid to-black" placeholder=1>
     <button (click)="searchPokemon()" class="px-4 py-2 bg-gray-600 text-white font-semibold rounded-md hover:bg-gray-700 transition">Search</button>
     <p> {{message}}</p>   
 
 <br>
-<app-post-list-pkmn-card [cId]="currentId" />
+<app-post-list-pkmn-card [cId]="currentId"></app-post-list-pkmn-card>
 
 <section  class="btn-container flex justify-center space-x-4">
     <button (click)="previousPokemon()"  class="bg-red-500 px-4 py-2 text-white rounded hover:bg-red-700"> Previous </button>
     <button (click)="nextPokemon()" class="bg-green-500 px-4 py-2 text-white rounded hover:bg-green-700"> Next </button>
 </section>
     
+
+</div>

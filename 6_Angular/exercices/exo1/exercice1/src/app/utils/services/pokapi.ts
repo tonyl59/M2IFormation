@@ -8,7 +8,7 @@ import { Pokemon } from '../types/pokemon.type';
 })
 export class Pokapi {
   
-  private baseUrl = "https://pokeapi.co/api/v2/pokemon"
+  private baseUrl: string = "https://pokeapi.co/api/v2/pokemon"
 
   constructor(private http: HttpClient){}
 /*

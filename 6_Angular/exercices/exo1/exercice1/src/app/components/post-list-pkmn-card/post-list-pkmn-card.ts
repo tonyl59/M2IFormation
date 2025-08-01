@@ -11,20 +11,17 @@ import { Pokemon } from '../../utils/types/pokemon.type';
 })
 export class PostListPkmnCard implements OnChanges{
   @Input() cId!: number;
-  p!: Pokemon
+  p!: Pokemon;
 
   constructor(private pokApi: Pokapi){}
 
     ngOnChanges(changes: SimpleChanges): void {
       if (changes['cId']) {
         const newUrl : string = "https://pokeapi.co/api/v2/pokemon/" + String(changes['cId'].currentValue) +"/"
-
         this.pokApi.addUrl(newUrl).subscribe({
-          next: response => {
+          next: (response) => {
             this.p = response;
             console.log(response)
-            //console.log(data.types)
-         
       },
       error: err => console.error(err)
     })

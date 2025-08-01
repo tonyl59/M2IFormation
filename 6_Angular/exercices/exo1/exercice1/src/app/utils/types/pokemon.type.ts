@@ -4,6 +4,6 @@ export type Pokemon = {
   height : number,
   weight : number,
   image : string,
-  types : any[],
+  types : string[],
   moves : any[]
 }
