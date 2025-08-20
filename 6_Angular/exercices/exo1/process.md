@@ -135,3 +135,21 @@ ng g c components/pokemon-card --skip-tests
 - Créer un bouton dans pokemon-card permettant de supprimer un pokemon
     - Le bouton doit envoyer un evenement au parent
     - Le parent doit récupérer cet evenement pour supprimer le pokemon de la liste (vous pouvez ajouter un id au type pokemon pour le retrouver facilement)
+
+```bash
+ng g s components/pokemon-card --skip-tests
+```
+
+## Exercice 8 :
+- Réaliser un programme pour exploiter la PokeApi https://pokeapi.co/api/v2/pokemon?limit=150
+
+- Permettre la recherche d'un pkmn via son id
+- Permettre de visualiser les infos d'un pokemon (nom, poids, taille, types, image, attaques)
+- Possible de passer directement au pkmn suivant ou precedent via bouton. La fonctionnalité doit vérifier si on est deja au premier ou dernier pokemon de la liste
+
+```bash
+ng g s utils/services/pokapi --skip-tests
+ng g s utils/types/pokemon --skip-tests
+ng g c components/post-list-pkmn --skip-tests
+ng g c components/post-list-pkmn-card --skip-tests
+```

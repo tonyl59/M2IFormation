@@ -61,3 +61,11 @@
 - Créer un bouton dans pokemon-card permettant de supprimer un pokemon
     - Le bouton doit envoyer un evenement au parent
     - Le parent doit récupérer cet evenement pour supprimer le pokemon de la liste (vous pouvez ajouter un id au type pokemon pour le retrouver facilement)
+
+
+## Exercice 8 :
+- Réaliser un programme pour exploiter la PokeApi https://pokeapi.co/api/v2/pokemon?limit=150
+
+- Permettre la recherche d'un pkmn via son id
+- Permettre de visualiser les infos d'un pokemon (nom, poids, taille, types, image, attaques)
+- Possible de passer directement au pkmn suivant ou precedent via bouton. La fonctionnalité doit vérifier si on est deja au premier ou dernier pokemon de la liste
